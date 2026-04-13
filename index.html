@@ -7,71 +7,52 @@
     <meta name="description" content="Mikhail Safin, CFA. Investment consulting for private clients and entrepreneurs.">
     <style>
         :root {
-            --bg: #0f1b16;
-            --bg-soft: #172720;
-            --card: rgba(19, 32, 26, 0.82);
-            --card-strong: rgba(14, 25, 20, 0.92);
-            --line: rgba(201, 178, 93, 0.18);
-            --gold: #d4b45b;
-            --gold-soft: rgba(212, 180, 91, 0.14);
-            --text: #f4f0e2;
-            --muted: #b8b4a6;
-            --accent: #8fb38b;
-            --shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
-            --radius-xl: 34px;
-            --radius-lg: 24px;
-            --radius-md: 18px;
-            --radius-sm: 12px;
-            --max: 1180px;
+            --bg: #0d1713;
+            --bg2: #13211b;
+            --card: rgba(17, 28, 23, 0.86);
+            --card2: rgba(12, 20, 16, 0.94);
+            --line: rgba(209, 176, 88, 0.18);
+            --gold: #d1b058;
+            --text: #f4f0e4;
+            --muted: #b7b2a2;
+            --shadow: 0 28px 64px rgba(0, 0, 0, 0.34);
+            --xl: 34px;
+            --lg: 24px;
+            --md: 18px;
+            --maxw: 1180px;
         }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             margin: 0;
             min-height: 100vh;
-            font-family: Georgia, "Times New Roman", serif;
             color: var(--text);
+            font-family: Georgia, "Times New Roman", serif;
             background:
-                radial-gradient(circle at 15% 10%, rgba(212, 180, 91, 0.15), transparent 24%),
-                radial-gradient(circle at 85% 18%, rgba(143, 179, 139, 0.1), transparent 22%),
-                linear-gradient(135deg, rgba(12, 20, 16, 0.92), rgba(20, 34, 27, 0.94)),
-                url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=80") center/cover fixed;
+                radial-gradient(circle at 12% 10%, rgba(209,176,88,.17), transparent 24%),
+                radial-gradient(circle at 84% 14%, rgba(124,162,124,.12), transparent 20%),
+                linear-gradient(135deg, rgba(9,14,12,.98), rgba(18,31,25,.96));
         }
-
         body::before {
             content: "";
             position: fixed;
             inset: 0;
-            background:
-                linear-gradient(180deg, rgba(8, 12, 10, 0.6), rgba(8, 12, 10, 0.82)),
-                repeating-linear-gradient(90deg, rgba(212, 180, 91, 0.02), rgba(212, 180, 91, 0.02) 1px, transparent 1px, transparent 110px);
             pointer-events: none;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,.02), transparent 18%),
+                repeating-linear-gradient(90deg, rgba(209,176,88,.03), rgba(209,176,88,.03) 1px, transparent 1px, transparent 120px),
+                repeating-linear-gradient(0deg, rgba(209,176,88,.015), rgba(209,176,88,.015) 1px, transparent 1px, transparent 120px);
+            opacity: .65;
         }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button {
-            font: inherit;
-        }
-
+        a { color: inherit; text-decoration: none; }
+        button { font: inherit; }
         .shell {
             position: relative;
-            width: min(var(--max), calc(100vw - 28px));
+            width: min(var(--maxw), calc(100vw - 28px));
             margin: 0 auto;
-            padding: 20px 0 32px;
+            padding: 20px 0 34px;
             z-index: 1;
         }
-
         .topbar {
             display: flex;
             align-items: center;
@@ -79,76 +60,67 @@
             gap: 16px;
             margin-bottom: 18px;
         }
-
         .brand {
             display: inline-flex;
             align-items: center;
             gap: 12px;
             color: var(--muted);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
             font-size: 12px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
         }
-
-        .brand-mark {
+        .mark {
             width: 42px;
             height: 42px;
-            border-radius: 14px;
             display: grid;
             place-items: center;
-            font-size: 18px;
+            border-radius: 14px;
             color: var(--gold);
-            background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--line);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            background: rgba(255,255,255,.04);
+            font-size: 18px;
+            font-weight: 700;
         }
-
-        .lang-switch {
+        .lang {
             display: inline-flex;
-            padding: 4px;
             gap: 4px;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 4px;
             border: 1px solid var(--line);
             border-radius: 999px;
+            background: rgba(255,255,255,.05);
         }
-
-        .lang-switch button {
-            min-width: 60px;
+        .lang button {
+            min-width: 58px;
             min-height: 38px;
             border: 0;
             border-radius: 999px;
-            color: var(--muted);
             background: transparent;
+            color: var(--muted);
             cursor: pointer;
         }
-
-        .lang-switch button.active {
-            color: #111;
+        .lang button.active {
             background: var(--gold);
+            color: #141108;
         }
-
         .card {
-            background: linear-gradient(180deg, rgba(20, 34, 27, 0.85), rgba(11, 18, 15, 0.94));
+            background: linear-gradient(180deg, var(--card), var(--card2));
             border: 1px solid var(--line);
-            border-radius: var(--radius-xl);
+            border-radius: var(--xl);
             box-shadow: var(--shadow);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
         }
-
         .hero {
             display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+            grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
             gap: 22px;
             padding: 28px;
             overflow: hidden;
         }
-
-        .hero-copy {
+        .copy {
             display: grid;
             align-content: start;
             gap: 18px;
         }
-
         .eyebrow {
             display: inline-flex;
             align-items: center;
@@ -156,48 +128,48 @@
             min-height: 36px;
             padding: 0 14px;
             border-radius: 999px;
-            background: var(--gold-soft);
-            border: 1px solid rgba(212, 180, 91, 0.26);
+            border: 1px solid rgba(209,176,88,.24);
+            background: rgba(209,176,88,.11);
             color: var(--gold);
             font-size: 12px;
-            letter-spacing: 0.08em;
+            letter-spacing: .08em;
             text-transform: uppercase;
         }
-
         h1 {
             margin: 0;
-            font-size: clamp(40px, 7vw, 82px);
-            line-height: 0.92;
-            letter-spacing: -0.05em;
+            font-size: clamp(42px, 7vw, 84px);
+            line-height: .92;
+            letter-spacing: -.05em;
         }
-
-        .hero-subtitle {
+        .subtitle {
             margin: 0;
             font-size: 24px;
             color: var(--gold);
-            letter-spacing: -0.03em;
+            letter-spacing: -.03em;
         }
-
-        .hero-text {
+        .lead {
             margin: 0;
             max-width: 720px;
             color: var(--muted);
             font-size: 18px;
-            line-height: 1.7;
+            line-height: 1.75;
         }
-
-        .cta-row,
-        .contact-row,
-        .chips,
-        .service-list,
-        .grid,
-        .metrics,
-        .contact-list {
+        .chips, .cta, .contact-list {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
         }
-
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            min-height: 36px;
+            padding: 0 12px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.04);
+            color: var(--muted);
+            font-size: 14px;
+        }
         .btn {
             display: inline-flex;
             align-items: center;
@@ -206,243 +178,180 @@
             padding: 0 18px;
             border-radius: 999px;
             border: 1px solid transparent;
-            transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+            transition: transform .18s ease;
         }
-
-        .btn:hover {
-            transform: translateY(-1px);
-        }
-
-        .btn-primary {
-            color: #15110a;
-            background: var(--gold);
-        }
-
-        .btn-secondary {
+        .btn:hover { transform: translateY(-1px); }
+        .btn.primary { color: #171107; background: var(--gold); }
+        .btn.secondary {
             color: var(--text);
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,.05);
             border-color: var(--line);
         }
-
-        .chip {
-            display: inline-flex;
-            align-items: center;
-            min-height: 36px;
-            padding: 0 12px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.04);
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .hero-side {
+        .side {
             position: relative;
-            min-height: 100%;
         }
-
-        .portrait-wrap {
+        .side::before {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            right: -30px;
+            top: -26px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(209,176,88,.2), rgba(209,176,88,0));
+            filter: blur(6px);
+            pointer-events: none;
+        }
+        .portrait {
             height: 100%;
-            min-height: 520px;
+            aspect-ratio: 3 / 4;
             overflow: hidden;
             border-radius: 28px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255,255,255,.08);
+            background:
+                radial-gradient(circle at top, rgba(209,176,88,.1), transparent 36%),
+                rgba(255,255,255,.04);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.05),
+                0 24px 54px rgba(0,0,0,.22),
+                0 0 0 1px rgba(209,176,88,.06);
         }
-
-        .portrait-wrap img {
+        .portrait img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
+            object-position: center 24%;
+            transform: scale(1.09);
+            filter: saturate(1.08) contrast(1.06) brightness(.98);
         }
-
-        .portrait-badge {
-            position: absolute;
-            left: 18px;
-            right: 18px;
-            bottom: 18px;
-            padding: 16px 18px;
-            border-radius: 20px;
-            background: rgba(10, 16, 13, 0.78);
-            border: 1px solid var(--line);
-            backdrop-filter: blur(12px);
-        }
-
-        .portrait-badge strong {
-            display: block;
-            font-size: 18px;
-            margin-bottom: 4px;
-        }
-
-        .portrait-badge span {
-            color: var(--muted);
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        .section {
-            margin-top: 18px;
-            padding: 24px;
-        }
-
-        .section-head {
+        .section { margin-top: 18px; padding: 24px; }
+        .head {
             display: flex;
             justify-content: space-between;
-            gap: 16px;
             align-items: end;
+            gap: 16px;
             margin-bottom: 18px;
         }
-
-        .section-head h2 {
+        .head h2 {
             margin: 0;
             font-size: 34px;
-            letter-spacing: -0.04em;
+            letter-spacing: -.04em;
         }
-
-        .section-head p {
+        .head p {
             margin: 0;
             max-width: 640px;
             color: var(--muted);
-            line-height: 1.7;
+            line-height: 1.75;
         }
-
-        .grid {
+        .grid3, .metrics {
             display: grid;
             gap: 14px;
             grid-template-columns: repeat(3, minmax(0, 1fr));
         }
-
-        .panel {
-            padding: 18px;
-            border-radius: var(--radius-lg);
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--line);
+        .focus {
+            margin-top: 18px;
+            padding: 22px;
+            background:
+                linear-gradient(180deg, rgba(209,176,88,.14), rgba(255,255,255,.03)),
+                linear-gradient(180deg, rgba(17,28,23,.9), rgba(12,20,16,.94));
         }
-
+        .focus-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+        .focus-head h2 {
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: -.04em;
+        }
+        .focus-head p {
+            margin: 0;
+            max-width: 620px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+        .focus-grid {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .focus-card {
+            padding: 18px;
+            border-radius: var(--lg);
+            border: 1px solid rgba(209,176,88,.22);
+            background: rgba(8, 14, 11, .24);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+        }
+        .focus-card strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--gold);
+            font-size: 22px;
+            letter-spacing: -.03em;
+        }
+        .focus-card span {
+            color: var(--text);
+            line-height: 1.65;
+        }
+        .metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .panel, .metric {
+            padding: 18px;
+            border-radius: var(--lg);
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.04);
+        }
+        .metric {
+            background: linear-gradient(180deg, rgba(209,176,88,.1), rgba(255,255,255,.03));
+        }
         .panel h3 {
             margin: 0 0 10px;
             font-size: 22px;
-            letter-spacing: -0.03em;
+            letter-spacing: -.03em;
         }
-
-        .panel p,
-        .panel li,
-        .panel .meta {
+        .panel p, .panel li, .panel .meta, .metric span {
             margin: 0;
             color: var(--muted);
-            line-height: 1.7;
+            line-height: 1.75;
             font-size: 16px;
         }
-
-        .panel ul {
-            margin: 0;
-            padding-left: 18px;
-        }
-
-        .metrics {
-            display: grid;
-            gap: 12px;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-
-        .metric {
-            padding: 18px;
-            border-radius: var(--radius-lg);
-            background: linear-gradient(180deg, rgba(212, 180, 91, 0.09), rgba(255, 255, 255, 0.03));
-            border: 1px solid var(--line);
-        }
-
+        .panel ul { margin: 0; padding-left: 18px; }
         .metric strong {
             display: block;
-            font-size: 34px;
-            color: var(--gold);
-            letter-spacing: -0.04em;
             margin-bottom: 4px;
-        }
-
-        .metric span {
-            color: var(--muted);
-            line-height: 1.5;
-        }
-
-        .experience-item + .experience-item {
-            margin-top: 18px;
-            padding-top: 18px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .experience-item h3 {
-            margin: 0;
-            font-size: 22px;
-        }
-
-        .role-meta {
-            margin: 6px 0 10px;
             color: var(--gold);
-            font-size: 14px;
-            letter-spacing: 0.03em;
+            font-size: 34px;
+            letter-spacing: -.04em;
         }
-
-        .contact-block {
+        .contact {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
             gap: 18px;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
         }
-
         .contact-list a {
             display: inline-flex;
             align-items: center;
             min-height: 42px;
             padding: 0 14px;
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--line);
-            color: var(--text);
+            background: rgba(255,255,255,.05);
         }
-
-        .footer-note {
+        .note {
             margin-top: 18px;
             color: var(--muted);
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.65;
         }
-
-        [data-lang] {
-            display: none;
-        }
-
-        html[data-lang="ru"] [data-lang="ru"],
-        html[data-lang="en"] [data-lang="en"] {
-            display: initial;
-        }
-
-        html[data-lang="ru"] .lang-switch button[data-set-lang="ru"],
-        html[data-lang="en"] .lang-switch button[data-set-lang="en"] {
-            color: #111;
-            background: var(--gold);
-        }
-
         @media (max-width: 980px) {
-            .hero,
-            .contact-block,
-            .metrics,
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding: 20px;
-            }
-
-            .section {
-                padding: 20px;
-            }
-
-            .portrait-wrap {
-                min-height: 420px;
-            }
+            .hero, .grid3, .focus-grid, .metrics, .contact { grid-template-columns: 1fr; }
+            .hero { padding: 20px; }
+            .section { padding: 20px; }
+            .portrait { aspect-ratio: 4 / 5; }
+            .head, .focus-head { align-items: start; flex-direction: column; }
         }
     </style>
 </head>
@@ -450,254 +359,151 @@
     <div class="shell">
         <div class="topbar">
             <div class="brand">
-                <div class="brand-mark">MS</div>
+                <div class="mark">MS</div>
                 <span>Mikhail Safin Advisory</span>
             </div>
-            <div class="lang-switch" aria-label="Language switch">
-                <button type="button" data-set-lang="ru" class="active">RU</button>
+            <div class="lang" aria-label="Language switch">
+                <button type="button" data-set-lang="ru">RU</button>
                 <button type="button" data-set-lang="en">EN</button>
             </div>
         </div>
 
         <section class="card hero">
-            <div class="hero-copy">
-                <span class="eyebrow" data-lang="ru">Инвестиционный консультант</span>
-                <span class="eyebrow" data-lang="en">Investment Consultant</span>
-
+            <div class="copy">
+                <span class="eyebrow" data-i18n="eyebrow"></span>
                 <h1>Mikhail Safin, CFA</h1>
-
-                <p class="hero-subtitle" data-lang="ru">Помогаю клиентам принимать зрелые инвестиционные решения</p>
-                <p class="hero-subtitle" data-lang="en">Helping clients make mature investment decisions</p>
-
-                <p class="hero-text" data-lang="ru">
-                    Я консультирую частных клиентов, предпринимателей и семьи по вопросам стратегии капитала,
-                    структуры портфеля, риска и выбора инвестиционных решений. Мой подход сочетает фундаментальный
-                    анализ, макроэкономическое мышление и ясную финансовую логику.
-                </p>
-                <p class="hero-text" data-lang="en">
-                    I advise private clients, entrepreneurs, and families on capital strategy, portfolio structure,
-                    risk, and investment decision-making. My approach combines fundamental analysis, macroeconomic
-                    thinking, and clear financial logic.
-                </p>
-
+                <p class="subtitle" data-i18n="hero_subtitle"></p>
+                <p class="lead" data-i18n="hero_text"></p>
                 <div class="chips">
-                    <span class="chip" data-lang="ru">Пафос, Кипр</span>
-                    <span class="chip" data-lang="en">Paphos, Cyprus</span>
+                    <span class="chip" data-i18n="chip_location"></span>
                     <span class="chip">CFA</span>
-                    <span class="chip" data-lang="ru">17+ лет в финансах</span>
-                    <span class="chip" data-lang="en">17+ years in finance</span>
+                    <span class="chip" data-i18n="chip_experience"></span>
+                    <span class="chip" data-i18n="chip_focus"></span>
                 </div>
-
-                <div class="cta-row">
-                    <a class="btn btn-primary" href="#contact" data-lang="ru">Связаться</a>
-                    <a class="btn btn-primary" href="#contact" data-lang="en">Get in touch</a>
-                    <a class="btn btn-secondary" href="https://t.me/InvestSafin" target="_blank" rel="noopener">Telegram Channel</a>
-                    <a class="btn btn-secondary" href="https://www.linkedin.com/in/mikhail-safin/" target="_blank" rel="noopener">LinkedIn</a>
+                <div class="cta">
+                    <a class="btn primary" href="#contact" data-i18n="cta_contact"></a>
+                    <a class="btn secondary" href="https://t.me/InvestSafin" target="_blank" rel="noopener" data-i18n="cta_channel"></a>
+                    <a class="btn secondary" href="https://www.linkedin.com/in/mikhail-safin/" target="_blank" rel="noopener">LinkedIn</a>
                 </div>
             </div>
 
-            <div class="hero-side">
-                <div class="portrait-wrap">
+            <div class="side">
+                <div class="portrait">
                     <img src="./mikhail-safin.jpg" alt="Mikhail Safin portrait">
                 </div>
-                <div class="portrait-badge">
-                    <strong data-lang="ru">Капитал должен служить целям человека, а не наоборот</strong>
-                    <strong data-lang="en">Capital should serve a person's goals, not the other way around</strong>
-                    <span data-lang="ru">Стратегия начинается не с инструмента, а с маршрута, горизонта и смысла.</span>
-                    <span data-lang="en">Strategy starts not with an instrument, but with direction, time horizon, and purpose.</span>
-                </div>
             </div>
         </section>
 
-        <section class="card section">
-            <div class="section-head">
-                <div>
-                    <h2 data-lang="ru">Чем я могу быть полезен</h2>
-                    <h2 data-lang="en">How I can help</h2>
-                </div>
-                <p data-lang="ru">Практическая помощь в инвестиционной деятельности клиента, от общей стратегии до конкретных решений.</p>
-                <p data-lang="en">Practical support in a client's investment activity, from overall strategy to specific decisions.</p>
+        <section class="card focus">
+            <div class="focus-head">
+                <h2 data-i18n="focus_title"></h2>
+                <p data-i18n="focus_intro"></p>
             </div>
-            <div class="grid">
-                <article class="panel">
-                    <h3 data-lang="ru">Стратегия капитала</h3>
-                    <h3 data-lang="en">Capital Strategy</h3>
-                    <p data-lang="ru">Формирование инвестиционной рамки: цели, горизонт, допустимый риск, ликвидность и приоритеты семьи или бизнеса.</p>
-                    <p data-lang="en">Building an investment framework around goals, horizon, risk tolerance, liquidity, and family or business priorities.</p>
+            <div class="focus-grid">
+                <article class="focus-card">
+                    <strong data-i18n="focus_1_title"></strong>
+                    <span data-i18n="focus_1_text"></span>
                 </article>
-                <article class="panel">
-                    <h3 data-lang="ru">Портфель и аллокация</h3>
-                    <h3 data-lang="en">Portfolio & Allocation</h3>
-                    <p data-lang="ru">Оценка структуры портфеля, логики распределения активов, концентраций, перекосов и устойчивости к сценариям рынка.</p>
-                    <p data-lang="en">Reviewing portfolio structure, allocation logic, concentration, imbalances, and resilience across market scenarios.</p>
+                <article class="focus-card">
+                    <strong data-i18n="focus_2_title"></strong>
+                    <span data-i18n="focus_2_text"></span>
                 </article>
-                <article class="panel">
-                    <h3 data-lang="ru">Разбор возможностей</h3>
-                    <h3 data-lang="en">Opportunity Review</h3>
-                    <p data-lang="ru">Анализ отдельных идей, фондов, проектов и активов с точки зрения фундаментала, риска и соответствия вашей стратегии.</p>
-                    <p data-lang="en">Reviewing ideas, funds, projects, and assets through the lens of fundamentals, risk, and strategic fit.</p>
+                <article class="focus-card">
+                    <strong data-i18n="focus_3_title"></strong>
+                    <span data-i18n="focus_3_text"></span>
                 </article>
             </div>
         </section>
 
         <section class="card section">
-            <div class="section-head">
-                <div>
-                    <h2 data-lang="ru">Экспертиза</h2>
-                    <h2 data-lang="en">Expertise</h2>
-                </div>
-                <p data-lang="ru">Сочетание инвестиционного опыта, сильной количественной базы и стратегического взгляда на капитал.</p>
-                <p data-lang="en">A blend of investment experience, quantitative rigor, and strategic thinking about capital.</p>
+            <div class="head">
+                <h2 data-i18n="services_title"></h2>
+                <p data-i18n="services_intro"></p>
+            </div>
+            <div class="grid3">
+                <article class="panel">
+                    <h3 data-i18n="service_1_title"></h3>
+                    <p data-i18n="service_1_text"></p>
+                </article>
+                <article class="panel">
+                    <h3 data-i18n="service_2_title"></h3>
+                    <p data-i18n="service_2_text"></p>
+                </article>
+                <article class="panel">
+                    <h3 data-i18n="service_3_title"></h3>
+                    <p data-i18n="service_3_text"></p>
+                </article>
+            </div>
+        </section>
+
+        <section class="card section">
+            <div class="head">
+                <h2 data-i18n="metrics_title"></h2>
+                <p data-i18n="metrics_intro"></p>
             </div>
             <div class="metrics">
-                <div class="metric">
-                    <strong>17+</strong>
-                    <span data-lang="ru">лет опыта в финансах</span>
-                    <span data-lang="en">years of finance experience</span>
-                </div>
-                <div class="metric">
-                    <strong>5</strong>
-                    <span data-lang="ru">лет в data analytics: C++, VBA, SQL, Oracle</span>
-                    <span data-lang="en">years in data analytics: C++, VBA, SQL, Oracle</span>
-                </div>
-                <div class="metric">
-                    <strong>CFA</strong>
-                    <span data-lang="ru">международная инвестиционная квалификация</span>
-                    <span data-lang="en">global investment credential</span>
-                </div>
-                <div class="metric">
-                    <strong>MBA</strong>
-                    <span data-lang="ru">Московская школа управления СКОЛКОВО</span>
-                    <span data-lang="en">Moscow School of Management SKOLKOVO</span>
-                </div>
+                <div class="metric"><strong>20+</strong><span data-i18n="metric_1"></span></div>
+                <div class="metric"><strong>4</strong><span data-i18n="metric_2"></span></div>
+                <div class="metric"><strong>CFA</strong><span data-i18n="metric_3"></span></div>
+                <div class="metric"><strong>MBA</strong><span data-i18n="metric_4"></span></div>
             </div>
         </section>
 
         <section class="card section">
-            <div class="section-head">
-                <div>
-                    <h2 data-lang="ru">Опыт и образование</h2>
-                    <h2 data-lang="en">Experience & Education</h2>
-                </div>
-                <p data-lang="ru">Факты ниже собраны из предоставленного резюме и адаптированы для клиентской страницы.</p>
-                <p data-lang="en">The facts below are based on the resume you provided and adapted for a client-facing page.</p>
+            <div class="head">
+                <h2 data-i18n="background_title"></h2>
+                <p data-i18n="background_intro"></p>
             </div>
-            <div class="grid">
+            <div class="grid3">
                 <article class="panel">
-                    <h3 data-lang="ru">Профессиональный профиль</h3>
-                    <h3 data-lang="en">Professional Profile</h3>
-                    <div class="experience-item">
-                        <h3 data-lang="ru">Инвестиционный директор</h3>
-                        <h3 data-lang="en">Investment Director</h3>
-                        <div class="role-meta" data-lang="ru">Финансы, корпоративные финансы, фундаментальный анализ, макроэкономика и стратегия</div>
-                        <div class="role-meta" data-lang="en">Finance, corporate finance, fundamental analysis, macroeconomics, and strategy</div>
-                        <p data-lang="ru">Прошел путь от аналитика до инвестиционного директора. Работал на стыке анализа компаний, инвестиционных решений, стратегического мышления и управленческой отчетности.</p>
-                        <p data-lang="en">Progressed from analyst to investment director, working across company analysis, investment decisions, strategic thinking, and management reporting.</p>
-                    </div>
+                    <h3 data-i18n="profile_title"></h3>
+                    <p data-i18n="profile_text"></p>
                 </article>
-
                 <article class="panel">
-                    <h3 data-lang="ru">Образование</h3>
-                    <h3 data-lang="en">Education</h3>
-                    <div class="experience-item">
-                        <h3>SKOLKOVO</h3>
-                        <div class="role-meta">MBA, 2018-2020</div>
-                    </div>
-                    <div class="experience-item">
-                        <h3 data-lang="ru">Институт системного анализа РАН</h3>
-                        <h3 data-lang="en">Institute for Systems Analysis, Russian Academy of Sciences</h3>
-                        <div class="role-meta" data-lang="ru">Аспирантура, кандидат физико-математических наук, 2006-2008</div>
-                        <div class="role-meta" data-lang="en">Postgraduate studies, Candidate of Physical and Mathematical Sciences, 2006-2008</div>
-                    </div>
-                    <div class="experience-item">
-                        <h3 data-lang="ru">МФТИ</h3>
-                        <h3 data-lang="en">Moscow Institute of Physics and Technology</h3>
-                        <div class="role-meta" data-lang="ru">Магистр прикладной математики и физики, 2000-2006</div>
-                        <div class="role-meta" data-lang="en">Master's degree in Applied Mathematics and Physics, 2000-2006</div>
-                    </div>
+                    <h3 data-i18n="education_title"></h3>
+                    <div class="meta" data-i18n="education_1"></div>
+                    <div class="meta" style="margin-top:10px;" data-i18n="education_2"></div>
+                    <div class="meta" style="margin-top:10px;" data-i18n="education_3"></div>
                 </article>
-
                 <article class="panel">
-                    <h3 data-lang="ru">Подход к работе</h3>
-                    <h3 data-lang="en">How I Work</h3>
-                    <ul data-lang="ru">
-                        <li>Сначала цель и маршрут, потом инструменты.</li>
-                        <li>Риск рассматривается как часть конструкции капитала, а не как случайность.</li>
-                        <li>Капитал должен поддерживать жизнь клиента, а не поглощать ее.</li>
-                    </ul>
-                    <ul data-lang="en">
-                        <li>Start with goals and direction, then choose instruments.</li>
-                        <li>Risk is treated as part of capital design, not as an accident.</li>
-                        <li>Capital should support a client's life, not consume it.</li>
+                    <h3 data-i18n="approach_title"></h3>
+                    <ul>
+                        <li data-i18n="approach_1"></li>
+                        <li data-i18n="approach_2"></li>
+                        <li data-i18n="approach_3"></li>
                     </ul>
                 </article>
             </div>
         </section>
 
         <section class="card section" id="contact">
-            <div class="section-head">
-                <div>
-                    <h2 data-lang="ru">Контакты</h2>
-                    <h2 data-lang="en">Contact</h2>
-                </div>
-                <p data-lang="ru">Если вам нужен взгляд со стороны на структуру портфеля, инвестиционную идею или стратегию капитала, напишите мне.</p>
-                <p data-lang="en">If you need an external view on your portfolio structure, an investment idea, or your capital strategy, feel free to contact me.</p>
+            <div class="head">
+                <h2 data-i18n="contact_title"></h2>
+                <p data-i18n="contact_intro"></p>
             </div>
-            <div class="contact-block">
+            <div class="contact">
                 <div class="panel">
-                    <h3 data-lang="ru">Направления работы</h3>
-                    <h3 data-lang="en">Areas of Work</h3>
-                    <ul data-lang="ru">
-                        <li>Инвестиционная стратегия частного капитала</li>
-                        <li>Структура и логика портфеля</li>
-                        <li>Фундаментальный взгляд на активы и идеи</li>
-                        <li>Навигация по рискам, ликвидности и горизонту</li>
-                    </ul>
-                    <ul data-lang="en">
-                        <li>Private capital investment strategy</li>
-                        <li>Portfolio structure and allocation logic</li>
-                        <li>Fundamental review of assets and ideas</li>
-                        <li>Navigating risk, liquidity, and time horizon</li>
+                    <h3 data-i18n="contact_left_title"></h3>
+                    <ul>
+                        <li data-i18n="contact_item_1"></li>
+                        <li data-i18n="contact_item_2"></li>
+                        <li data-i18n="contact_item_3"></li>
+                        <li data-i18n="contact_item_4"></li>
                     </ul>
                 </div>
                 <div class="panel">
-                    <h3 data-lang="ru">Связь</h3>
-                    <h3 data-lang="en">Reach Out</h3>
+                    <h3 data-i18n="contact_right_title"></h3>
                     <div class="contact-list">
                         <a href="mailto:Mikhail.Safin@gmail.com">Mikhail.Safin@gmail.com</a>
                         <a href="https://t.me/sfnmike" target="_blank" rel="noopener">@sfnmike</a>
                         <a href="https://t.me/InvestSafin" target="_blank" rel="noopener">t.me/InvestSafin</a>
                         <a href="https://www.linkedin.com/in/mikhail-safin/" target="_blank" rel="noopener">LinkedIn</a>
                     </div>
-                    <div class="footer-note" data-lang="ru">Пафос, Кипр</div>
-                    <div class="footer-note" data-lang="en">Paphos, Cyprus</div>
+                    <div class="note" data-i18n="contact_location"></div>
                 </div>
             </div>
         </section>
     </div>
-
-    <script>
-        (function () {
-            const root = document.documentElement;
-            const buttons = Array.prototype.slice.call(document.querySelectorAll("[data-set-lang]"));
-
-            function setLanguage(lang) {
-                root.setAttribute("data-lang", lang);
-                root.setAttribute("lang", lang);
-                buttons.forEach(function (button) {
-                    button.classList.toggle("active", button.getAttribute("data-set-lang") === lang);
-                });
-                localStorage.setItem("msafin_lang", lang);
-            }
-
-            buttons.forEach(function (button) {
-                button.addEventListener("click", function () {
-                    setLanguage(button.getAttribute("data-set-lang") || "ru");
-                });
-            });
-
-            setLanguage(localStorage.getItem("msafin_lang") || "ru");
-        })();
-    </script>
+    <script src="./site.js"></script>
 </body>
 </html>
