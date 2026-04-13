@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mikhail Safin</title>
+    <meta name="description" content="Personal landing page for Mikhail Safin, CFA.">
+    <style>
+        :root {
+            --bg: #f3efe7;
+            --paper: rgba(255, 252, 246, 0.9);
+            --ink: #102b33;
+            --muted: #62737a;
+            --line: rgba(16, 43, 51, 0.12);
+            --accent: #0f6f6b;
+            --accent-strong: #0a5552;
+            --accent-soft: rgba(15, 111, 107, 0.12);
+            --shadow: 0 24px 60px rgba(16, 43, 51, 0.12);
+            --radius-lg: 28px;
+            --radius-md: 18px;
+            --radius-sm: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+            font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(15, 111, 107, 0.16), transparent 28%),
+                linear-gradient(180deg, #f7f1e7 0%, var(--bg) 100%);
+        }
+
+        body {
+            padding: 24px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            width: min(1100px, 100%);
+            margin: 0 auto;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .card {
+            background: var(--paper);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-copy {
+            padding: 36px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            min-height: 34px;
+            padding: 0 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 18px 0 10px;
+            font-size: clamp(40px, 7vw, 76px);
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+        }
+
+        .lead {
+            margin: 0;
+            font-size: 21px;
+            line-height: 1.55;
+            color: var(--muted);
+            max-width: 660px;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 26px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 0 18px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            color: #fff;
+            background: var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-strong);
+        }
+
+        .btn-secondary {
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.78);
+            border-color: var(--line);
+        }
+
+        .side-card {
+            padding: 28px;
+            display: grid;
+            gap: 18px;
+            align-content: start;
+        }
+
+        .monogram {
+            width: 84px;
+            height: 84px;
+            border-radius: 24px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, rgba(15, 111, 107, 0.18), rgba(16, 43, 51, 0.08));
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        .meta-list,
+        .facts,
+        .section-grid {
+            display: grid;
+            gap: 14px;
+        }
+
+        .meta-item,
+        .fact,
+        .section-card {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.72);
+        }
+
+        .meta-item,
+        .fact {
+            padding: 14px 16px;
+        }
+
+        .label {
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .value {
+            font-size: 18px;
+            line-height: 1.45;
+        }
+
+        main {
+            margin-top: 22px;
+        }
+
+        .section-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .section-card {
+            padding: 24px;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: 26px;
+            letter-spacing: -0.04em;
+        }
+
+        .section-card p,
+        .section-card li,
+        .note {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.65;
+            font-size: 16px;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .facts {
+            margin-top: 22px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .fact strong {
+            display: block;
+            font-size: 28px;
+            letter-spacing: -0.04em;
+            margin-bottom: 4px;
+        }
+
+        footer {
+            margin-top: 22px;
+            padding: 20px 24px;
+        }
+
+        .footer-text {
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        @media (max-width: 920px) {
+            body {
+                padding: 14px;
+            }
+
+            .hero,
+            .section-grid,
+            .facts {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-copy,
+            .side-card,
+            .section-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="hero">
+            <section class="card hero-copy">
+                <span class="eyebrow">Mikhail Safin</span>
+                <h1>Mikhail Safin, CFA</h1>
+                <p class="lead">
+                    Investment professional based in Nicosia, Cyprus, with a background in capital markets,
+                    investment analysis, and strategic finance.
+                </p>
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="https://www.linkedin.com/in/mikhail-safin/" target="_blank" rel="noopener">View LinkedIn</a>
+                    <a class="btn btn-secondary" href="mailto:hello@example.com">Contact</a>
+                </div>
+            </section>
+
+            <aside class="card side-card">
+                <div class="monogram">MS</div>
+                <div class="meta-list">
+                    <div class="meta-item">
+                        <div class="label">Current Base</div>
+                        <div class="value">Nicosia, Cyprus</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="label">Focus</div>
+                        <div class="value">Investments, strategy, and financial decision-making</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="label">Credential</div>
+                        <div class="value">CFA charterholder</div>
+                    </div>
+                </div>
+            </aside>
+        </header>
+
+        <main>
+            <section class="section-grid">
+                <article class="section-card">
+                    <h2>About</h2>
+                    <p>
+                        This page is a concise professional profile built from public information available on
+                        LinkedIn. It is designed as a simple personal landing page that can live on your domain
+                        and later be expanded into a full professional website.
+                    </p>
+                </article>
+
+                <article class="section-card">
+                    <h2>Background</h2>
+                    <p>
+                        Public profile data indicates experience in finance and investment-related roles, with
+                        an emphasis on analytical work, capital allocation, and long-term strategic thinking.
+                    </p>
+                </article>
+
+                <article class="section-card">
+                    <h2>Education</h2>
+                    <p>
+                        Public LinkedIn search results associate the profile with SKOLKOVO and CFA Institute.
+                        This landing keeps the presentation intentionally simple and professional.
+                    </p>
+                </article>
+            </section>
+
+            <section class="facts">
+                <div class="fact">
+                    <strong>CFA</strong>
+                    <span class="note">Professional investment credential</span>
+                </div>
+                <div class="fact">
+                    <strong>Nicosia</strong>
+                    <span class="note">Publicly listed location on LinkedIn search preview</span>
+                </div>
+                <div class="fact">
+                    <strong>Finance</strong>
+                    <span class="note">Core domain of the public profile</span>
+                </div>
+                <div class="fact">
+                    <strong>Personal Site</strong>
+                    <span class="note">Built as a clean one-page introduction</span>
+                </div>
+            </section>
+        </main>
+
+        <footer class="card">
+            <div class="footer-text">
+                Public profile information source: LinkedIn search preview for Mikhail Safin, CFA in Nicosia,
+                Cyprus. Full profile details may require LinkedIn sign-in.
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
